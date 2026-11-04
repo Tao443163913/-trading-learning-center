@@ -3,334 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore educational resources covering trading fundamentals, technical analysis, market trends and risk management.">
-  <meta name="theme-color" content="#f5f8fc">
-  <title>Trading Learning Center | Build Your Market Knowledge</title>
+  <meta name="description" content="Explore educational resources about stock market fundamentals, technical analysis, market trends and risk management.">
+  <title>Trading Learning Center | Market Education</title>
   <style>
     :root {
-      --navy: #102b4e;
-      --blue: #2463a6;
-      --blue-dark: #174b82;
-      --sky: #eaf3fc;
-      --ink: #182638;
-      --muted: #627287;
-      --line: #e3eaf2;
-      --white: #ffffff;
-      --bg: #f5f8fc;
-      --green: #168653;
-      --shadow: 0 18px 50px rgba(16, 43, 78, .09);
-      --radius: 22px;
+      --navy: #10233f;
+      --blue: #2563eb;
+      --light: #f4f8ff;
+      --muted: #61718a;
+      --line: #e3eaf4;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.65;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--navy);
+      background: #fff;
+      line-height: 1.55;
     }
-    a { color: inherit; }
-    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .topbar {
-      background: rgba(255,255,255,.92);
-      border-bottom: 1px solid var(--line);
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(12px);
-    }
-    .nav { min-height: 76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .brand { display:flex; align-items:center; gap:11px; text-decoration:none; font-weight:800; color:var(--navy); letter-spacing:-.03em; }
-    .brand-mark {
-      width:38px; height:38px; border-radius:12px; display:grid; place-items:center;
-      color:white; background:linear-gradient(145deg, #327bc0, #153c68); font-size:19px;
-      box-shadow: 0 7px 18px rgba(36,99,166,.22);
-    }
-    .nav-links { display:flex; align-items:center; gap:28px; }
-    .nav-links a { text-decoration:none; color:#53647a; font-size:14px; font-weight:650; }
-    .nav-links a:hover { color:var(--blue); }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:9px;
-      padding:13px 20px; border-radius:12px; text-decoration:none; font-weight:750;
-      border:1px solid transparent; transition:.2s ease; cursor:pointer;
-    }
-    .btn-primary { color:white; background:var(--blue); box-shadow:0 9px 22px rgba(36,99,166,.2); }
-    .btn-primary:hover { background:var(--blue-dark); transform:translateY(-1px); }
-    .btn-outline { color:var(--navy); border-color:#cbd8e7; background:white; }
-    .btn-outline:hover { border-color:var(--blue); color:var(--blue); }
-    .hero { padding:76px 0 66px; overflow:hidden; }
-    .hero-grid { display:grid; grid-template-columns:1.03fr .97fr; gap:54px; align-items:center; }
+    .wrap { width: min(920px, calc(100% - 36px)); margin: 0 auto; }
+    header { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .brand { font-size: 17px; font-weight: 700; letter-spacing: .2px; }
+    .brand span { color: var(--blue); }
+    main { padding: 48px 0 36px; }
+    .hero { text-align: center; max-width: 760px; margin: 0 auto 28px; }
     .eyebrow {
-      display:inline-flex; align-items:center; gap:8px; color:var(--blue);
-      background:#e8f2fc; border:1px solid #d6e7f8; border-radius:999px;
-      padding:7px 12px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+      display: inline-block; padding: 6px 12px; border-radius: 99px;
+      background: #eaf1ff; color: var(--blue); font-size: 12px;
+      font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
     }
-    h1 { color:var(--navy); font-size:clamp(40px,5.2vw,62px); line-height:1.08; letter-spacing:-.055em; margin:20px 0 19px; }
-    .hero-copy { color:var(--muted); font-size:18px; max-width:570px; margin:0 0 28px; }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
-    .micro-note { margin-top:20px; color:#7a899b; font-size:12px; }
-    .visual {
-      position:relative; min-height:430px; border-radius:28px; padding:28px;
-      background:linear-gradient(145deg,#e7f1fb,#d6e6f7 55%,#eff5fb);
-      border:1px solid #d9e6f3; box-shadow:var(--shadow); overflow:hidden;
+    h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.12; margin: 16px 0 12px; }
+    .intro { color: var(--muted); font-size: 17px; margin: 0 auto; max-width: 620px; }
+    .video-panel {
+      max-width: 760px; margin: 30px auto; aspect-ratio: 16 / 9;
+      border-radius: 18px; overflow: hidden; position: relative;
+      display: grid; place-items: center; text-align: center; color: white;
+      background:
+        radial-gradient(circle at 75% 25%, rgba(72,139,255,.5), transparent 30%),
+        linear-gradient(135deg, #10233f, #174b8f 58%, #0e2850);
+      box-shadow: 0 18px 45px rgba(16,35,63,.16);
     }
-    .visual:before, .visual:after {
-      content:""; position:absolute; border-radius:50%; background:rgba(255,255,255,.42);
+    .video-panel:before {
+      content: ""; position: absolute; inset: 0; opacity: .18;
+      background-image: linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 38px 38px;
     }
-    .visual:before { width:250px; height:250px; right:-80px; top:-80px; }
-    .visual:after { width:170px; height:170px; left:-70px; bottom:-70px; }
-    .chart-card {
-      position:relative; z-index:1; background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.9);
-      border-radius:19px; padding:22px; box-shadow:0 14px 35px rgba(24,57,91,.12);
+    .video-content { position: relative; padding: 24px; }
+    .video-mark {
+      width: 62px; height: 62px; margin: 0 auto 14px; border-radius: 50%;
+      display: grid; place-items: center; background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.45); font-size: 23px;
     }
-    .chart-head { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:22px; }
-    .chart-title { font-size:14px; font-weight:800; color:var(--navy); }
-    .chart-tag { color:#237b59; background:#e8f6ef; border-radius:999px; padding:5px 9px; font-size:11px; font-weight:750; }
-    .chart { width:100%; height:190px; display:block; }
-    .chart-labels { display:flex; justify-content:space-between; color:#8795a6; font-size:10px; margin-top:7px; }
-    .floating-note {
-      position:absolute; z-index:2; right:8px; bottom:25px; width:205px; padding:15px 17px;
-      background:var(--navy); color:white; border-radius:15px; box-shadow:0 12px 28px rgba(16,43,78,.22);
+    .video-content strong { display: block; font-size: 19px; }
+    .video-content small { display: block; margin-top: 6px; color: #d8e6ff; }
+    .topics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 28px 0; }
+    .topic {
+      background: var(--light); border: 1px solid var(--line); border-radius: 12px;
+      padding: 16px 12px; text-align: center; font-size: 14px; font-weight: 700;
     }
-    .floating-note strong { display:block; font-size:13px; }
-    .floating-note span { color:#c8d9eb; font-size:11px; }
-    section { padding:76px 0; }
-    .section-head { max-width:660px; margin:0 auto 38px; text-align:center; }
-    .section-kicker { color:var(--blue); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:850; }
-    h2 { color:var(--navy); font-size:clamp(30px,3.5vw,42px); line-height:1.16; letter-spacing:-.04em; margin:10px 0 13px; }
-    .section-head p { color:var(--muted); margin:0; }
-    .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:17px; }
-    .card {
-      background:white; border:1px solid var(--line); border-radius:18px; padding:24px 21px;
-      box-shadow:0 8px 25px rgba(16,43,78,.035);
+    .topic span { display: block; color: var(--blue); font-size: 21px; margin-bottom: 5px; }
+    .cta { text-align: center; padding: 22px 0 12px; }
+    .cta h2 { font-size: 23px; margin: 0 0 6px; }
+    .cta p { color: var(--muted); margin: 0 0 18px; }
+    .button {
+      display: inline-block; padding: 13px 25px; border-radius: 9px;
+      background: var(--blue); color: #fff; text-decoration: none;
+      font-weight: 700; box-shadow: 0 8px 20px rgba(37,99,235,.2);
     }
-    .icon {
-      width:47px; height:47px; display:grid; place-items:center; border-radius:14px;
-      color:var(--blue); background:var(--sky); margin-bottom:18px; font-size:22px;
-    }
-    .card h3 { margin:0 0 9px; color:var(--navy); font-size:17px; letter-spacing:-.02em; }
-    .card p { margin:0; color:var(--muted); font-size:14px; }
-    .approach { background:white; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-    .approach-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:58px; align-items:center; }
-    .approach-panel {
-      border-radius:23px; padding:30px; color:white;
-      background:linear-gradient(145deg,#173f6d,#102b4e);
-      box-shadow:var(--shadow);
-    }
-    .approach-panel .small { color:#bcd1e7; text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:800; }
-    .approach-panel h3 { font-size:27px; line-height:1.2; margin:12px 0; letter-spacing:-.03em; }
-    .approach-panel p { color:#d0deec; font-size:14px; margin:0; }
-    .steps { display:grid; gap:22px; }
-    .step { display:grid; grid-template-columns:42px 1fr; gap:15px; }
-    .step-num { width:38px; height:38px; border-radius:12px; background:var(--sky); color:var(--blue); display:grid; place-items:center; font-weight:850; }
-    .step h3 { margin:0 0 4px; color:var(--navy); font-size:16px; }
-    .step p { margin:0; color:var(--muted); font-size:14px; }
-    .contact { padding:78px 0; }
-    .contact-box {
-      background:linear-gradient(120deg,#eaf3fc,#f7faff); border:1px solid #dce9f6;
-      border-radius:25px; padding:48px; display:flex; align-items:center; justify-content:space-between; gap:30px;
-    }
-    .contact-box h2 { margin-top:0; max-width:600px; }
-    .contact-box p { color:var(--muted); margin:0; max-width:620px; }
-    .disclosure { background:white; border-top:1px solid var(--line); padding:28px 0; }
-    .disclosure h2 { font-size:15px; letter-spacing:0; margin:0 0 8px; }
-    .disclosure p { color:#68788b; font-size:12px; margin:0; }
-    footer { padding:25px 0 34px; color:#718095; font-size:12px; }
-    .footer-row { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
-    .footer-links { display:flex; gap:18px; flex-wrap:wrap; }
-    .footer-links a { text-decoration:none; }
-    .footer-links a:hover { color:var(--blue); }
-    @media (max-width:900px) {
-      .hero-grid,.approach-grid { grid-template-columns:1fr; gap:34px; }
-      .visual { min-height:390px; }
-      .cards { grid-template-columns:repeat(2,1fr); }
-      .contact-box { align-items:flex-start; flex-direction:column; padding:34px; }
-    }
-    @media (max-width:620px) {
-      .container { width:min(100% - 30px,1120px); }
-      .nav { min-height:66px; }
-      .nav-links { display:none; }
-      .nav .btn { padding:10px 13px; font-size:12px; }
-      .hero { padding:54px 0 48px; }
-      .hero-copy { font-size:16px; }
-      .visual { min-height:330px; padding:17px; border-radius:21px; }
-      .chart-card { padding:17px; }
-      .chart { height:150px; }
-      .floating-note { right:8px; bottom:12px; width:175px; }
-      section { padding:58px 0; }
-      .cards { grid-template-columns:1fr; }
-      .contact-box { padding:27px 22px; }
-      .hero-actions .btn { width:100%; }
+    .button:hover { background: #1d4ed8; }
+    footer { border-top: 1px solid var(--line); padding: 20px 0 28px; color: var(--muted); font-size: 12px; }
+    footer p { margin: 6px 0; }
+    @media (max-width: 640px) {
+      main { padding-top: 34px; }
+      .topics { grid-template-columns: repeat(2, 1fr); }
+      .intro { font-size: 15px; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Trading Learning Center home">
-        <span class="brand-mark">T</span>
-        <span>Trading Learning Center</span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#learning">Learning Topics</a>
-        <a href="#approach">Our Approach</a>
-        <a href="#disclosures">Disclosures</a>
-      </nav>
-      <a class="btn btn-primary" href="#contact">Get in Touch <span aria-hidden="true">→</span></a>
-    </div>
+  <header>
+    <div class="wrap brand">TRADING <span>LEARNING</span> CENTER</div>
   </header>
 
-  <main id="top">
+  <main class="wrap">
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow"><span aria-hidden="true">●</span> Financial Market Education</span>
-          <h1>Build Your Market Knowledge With Confidence.</h1>
-          <p class="hero-copy">Explore clear, structured educational resources covering trading fundamentals, technical analysis, market trends and risk management.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#learning">Explore Learning Topics <span aria-hidden="true">→</span></a>
-            <a class="btn btn-outline" href="#approach">How It Works</a>
-          </div>
-          <p class="micro-note">Independent learning starts with understanding the fundamentals. No outcome or return is guaranteed.</p>
-        </div>
+      <span class="eyebrow">Market education</span>
+      <h1>Build Your Market Knowledge With Confidence.</h1>
+      <p class="intro">Explore clear, practical learning resources covering stock market fundamentals, market trends and risk awareness.</p>
+    </section>
 
-        <div class="visual" aria-label="Illustrative financial chart graphic">
-          <div class="chart-card">
-            <div class="chart-head">
-              <div class="chart-title">Understanding Market Movements</div>
-              <span class="chart-tag">Learning illustration</span>
-            </div>
-            <svg class="chart" viewBox="0 0 520 210" role="img" aria-label="Illustrative upward and downward market price line">
-              <defs>
-                <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#4d91d0" stop-opacity=".25"/>
-                  <stop offset="100%" stop-color="#4d91d0" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <g stroke="#e8eef5" stroke-width="1">
-                <path d="M10 25H510 M10 70H510 M10 115H510 M10 160H510 M10 200H510"/>
-              </g>
-              <path d="M10 170 L55 145 L95 155 L140 105 L180 125 L220 82 L260 100 L300 58 L340 80 L380 45 L420 65 L465 28 L510 42 L510 200 L10 200Z" fill="url(#area)"/>
-              <path d="M10 170 L55 145 L95 155 L140 105 L180 125 L220 82 L260 100 L300 58 L340 80 L380 45 L420 65 L465 28 L510 42" fill="none" stroke="#2876ba" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <g fill="#2876ba"><circle cx="140" cy="105" r="4"/><circle cx="300" cy="58" r="4"/><circle cx="465" cy="28" r="4"/></g>
-            </svg>
-            <div class="chart-labels"><span>Concepts</span><span>Analysis</span><span>Risk awareness</span></div>
-          </div>
-          <div class="floating-note"><strong>Learn at your own pace</strong><span>Build understanding one topic at a time.</span></div>
-        </div>
+    <!-- VIDEO AREA:
+         When you have a real video, replace this placeholder with:
+         <video controls playsinline poster="your-thumbnail.jpg">
+           <source src="your-video.mp4" type="video/mp4">
+         </video>
+         Keep the video file in this folder and use its filename as the src.
+    -->
+    <section class="video-panel">
+  <video controls playsinline preload="metadata"
+         style="width:100%;height:100%;object-fit:contain;">
+    <source src="intro.mp4" type="video/mp4">
+    Your browser does not support video playback.
+  </video>
+</section>
+      <div class="video-content">
+        <div class="video-mark">▶</div>
+        <strong>Video Introduction Coming Soon</strong>
+        <small>A short introduction will be available here.</small>
       </div>
     </section>
 
-    <section id="learning">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">Learning Topics</span>
-          <h2>Understand the Ideas Behind the Markets</h2>
-          <p>Explore foundational topics that can help you read financial information more thoughtfully and understand the risks involved.</p>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <div class="icon" aria-hidden="true">⌁</div>
-            <h3>Technical Analysis</h3>
-            <p>Learn how charts, price patterns and common technical indicators are used in market analysis.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">↗</div>
-            <h3>Market Trends</h3>
-            <p>Explore market cycles, price movements and the factors that may influence financial markets.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">◈</div>
-            <h3>Risk Management</h3>
-            <p>Understand risk, diversification, position sizing concepts and the importance of a disciplined process.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">▤</div>
-            <h3>Trading Fundamentals</h3>
-            <p>Build familiarity with key terminology, order types, market structure and trading principles.</p>
-          </article>
-        </div>
-      </div>
+    <section class="topics" aria-label="Learning topics">
+      <div class="topic"><span>⌁</span>Technical Analysis</div>
+      <div class="topic"><span>↗</span>Market Trends</div>
+      <div class="topic"><span>◈</span>Risk Awareness</div>
+      <div class="topic"><span>▤</span>Trading Basics</div>
     </section>
 
-    <section class="approach" id="approach">
-      <div class="container approach-grid">
-        <div class="approach-panel">
-          <span class="small">Our learning approach</span>
-          <h3>Clear information. Thoughtful learning. Realistic expectations.</h3>
-          <p>Financial markets involve uncertainty. Our educational approach focuses on helping learners understand concepts and consider risk—not promising profits or particular investment outcomes.</p>
-        </div>
-        <div>
-          <span class="section-kicker">A Simple Starting Point</span>
-          <h2>Learn Step by Step</h2>
-          <div class="steps">
-            <div class="step">
-              <span class="step-num">01</span>
-              <div><h3>Explore the topics</h3><p>Review the learning areas and identify the concepts you want to understand.</p></div>
-            </div>
-            <div class="step">
-              <span class="step-num">02</span>
-              <div><h3>Ask questions</h3><p>Contact our team to ask about the educational materials and how they are presented.</p></div>
-            </div>
-            <div class="step">
-              <span class="step-num">03</span>
-              <div><h3>Learn at your own pace</h3><p>Use educational information to build your knowledge and make your own informed decisions.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="contact-box">
-          <div>
-            <span class="section-kicker">Get in Touch</span>
-            <h2>Have Questions About Our Learning Resources?</h2>
-            <p>Contact us to learn more about the educational topics covered on this website. Please do not send account passwords, verification codes or sensitive financial information.</p>
-          </div>
-          <!-- Replace the placeholder below with your official WhatsApp number in international format, digits only. -->
-          <a class="btn btn-primary" id="whatsapp-link" href="#" rel="noopener" target="_blank">Contact Us on WhatsApp <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="disclosure" id="disclosures">
-      <div class="container">
-        <h2>Important Information</h2>
-        <p>This website is intended for general educational and informational purposes only. The content is not personalized investment, financial, legal or tax advice, and should not be relied upon as a recommendation to buy, sell or hold any security or other financial instrument. Investing and trading involve risk, including the possible loss of principal. Past performance does not guarantee future results. No profit, return or trading outcome is promised or guaranteed. Consider your own circumstances and seek advice from an appropriately qualified and authorized professional where necessary. The operator of this website should add its full legal business name, business address, contact details, applicable regulatory status and any jurisdiction-specific disclosures before publication. Do not describe services as education-only if the actual service includes regulated advice, recommendations, portfolio management or other regulated activities.</p>
-      </div>
+    <section class="cta">
+      <h2>Continue Your Learning Journey</h2>
+      <p>Contact our team to learn more about the educational resources available.</p>
+      <!-- Replace the number below with your WhatsApp number in international format,
+           digits only (for example, country code + number, without +, spaces or dashes). -->
+      <a class="button" href="https://wa.me/18439814894?text=Hello%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20free%20trading%20education%20courses." target="_blank" rel="noopener">Contact Us on WhatsApp</a>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-row">
-      <span>© <span id="year"></span> Trading Learning Center. All rights reserved.</span>
-      <div class="footer-links">
-        <!-- Add a real privacy policy URL before publishing. -->
-        <a href="#privacy-note" id="privacy-link">Privacy Policy</a>
-        <a href="#disclosures">Important Information</a>
-      </div>
-    </div>
-    <div class="container" id="privacy-note" style="padding-top:12px;color:#8996a6">
-      Privacy policy placeholder: add a complete, accessible privacy policy describing what data you collect, why you collect it, retention, sharing, user rights and contact details before running ads or collecting personal information.
+    <div class="wrap">
+      <p><strong></strong>.</p>
+      <p><strong>Privacy:</strong> Add your organization's accurate privacy policy and contact details before publishing or collecting personal information.</p>
+      <p>© 2026 Trading Learning Center. All rights reserved.</p>
     </div>
   </footer>
-
-  <script>
-    // IMPORTANT: Replace this with your WhatsApp number in international format,
-    // digits only (country code + number, no +, spaces or punctuation).
-    const WHATSAPP_NUMBER = "REPLACE_WITH_YOUR_NUMBER";
-    const whatsappLink = document.getElementById("whatsapp-link");
-    if (/^[0-9]{8,15}$/.test(WHATSAPP_NUMBER)) {
-      whatsappLink.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
-        encodeURIComponent("Hello, I would like to learn more about your educational resources.");
-    } else {
-      whatsappLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        alert("Please add your official WhatsApp number in the HTML file before publishing.");
-      });
-    }
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
